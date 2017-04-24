@@ -1,6 +1,7 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 from django.db.models import permalink
-from tinymce.widgets import TinyMCE
+
 
 # Create your models here.
 class Category(models.Model):
@@ -36,7 +37,8 @@ class Article(models.Model):
 	title = models.CharField(max_length=200)
 	slug = models.SlugField(max_length=400, unique=True)
 	description = models.CharField(max_length=400)
-	body = models.TextField()
+	#body = models.TextField()
+	body = RichTextField()
 	author = models.ForeignKey(Author, on_delete=models.CASCADE)
 	category = models.ForeignKey(Category, on_delete=models.CASCADE)
 	pub_date = models.DateTimeField('date published')

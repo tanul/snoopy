@@ -25,7 +25,7 @@
                 </header> 
                     
                 <div class="entry-content">
-                    <p>{{ article.body}}</p>
+                    {{ article.body|safe }}
                 </div> 
 
             </article> <!-- end entry --> 
